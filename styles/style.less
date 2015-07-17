@@ -1,0 +1,66 @@
+@import "../bower_components/bootstrap/less/bootstrap";
+@font-size: 16px;
+a,
+span,
+label,
+p {
+	font-size: @font-size;
+}
+select {
+	&:extend(input);
+	min-height: 34px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.long {
+	min-width: 200px;
+}
+.short {
+	max-width: 80px;
+}
+.medium {
+	max-width: 120px;
+}
+.line-margin-top {
+	margin-top: 1.25em;
+}
+.bordered {
+	border: 1px solid #ddd;
+}
+.inline-block-justify {
+	text-align: justify;
+	&:after {
+		content: "";
+		display: inline-block;
+		width: 100%;
+	}
+}
+.form-inline > label {
+	width: 40%;
+	word-wrap: break-word;
+}
+.styled-radio {
+	font-size: 0;
+	input[type=radio] {
+		display: none;
+	}
+	input[type=radio] + label {
+		width: auto;
+		height: 34px;
+		padding: 0 1em;
+		background-color: #eee;
+		border: 1px solid #ccc;
+		font-size: 16px;
+	}
+	input[type=radio]:checked + label {
+		background-color: #4390eb;
+	}
+}
+.form-inline {
+	.styled-radio {
+		vertical-align: top;
+	}
+}
+.sidebar {
+	padding-top: 42px;
+}

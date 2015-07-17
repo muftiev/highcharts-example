@@ -1,0 +1,12 @@
+{
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "age", "type": "integer", "min": 10, "max": 70},
+    {"name": "salary", "type": "float", "min": 500, "max": 1000.500},
+    {"name": "qualification", "type": "integer", "min": 1, "max": 5}
+  ],
+  "data": [
+    {"name": "Ivan", "age": 25, "salary": 500, "qualification": 1},
+    {"name": "Petr", "age": 45, "salary": 710.45, "qualification": 4}
+  ]
+}
