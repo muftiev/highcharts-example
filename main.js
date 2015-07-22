@@ -61,9 +61,11 @@ var has = Object.prototype.hasOwnProperty,
                     inputs = setupForm.find("input"),
                     selects = setupForm.find("select"),
                     chartName = inputs.filter("[name=chartName]"),
+                    Yname = inputs.filter("[name=Yname]"),
                     Xdata = selects.filter("[name=Xdata]");
 
-                dataSet.chartName = chartName.val();
+                dataSet.Yname = chartName.val();
+                dataSet.chartName = Yname.val();
                 dataSet.Xdata = Xdata.val();
 
                 return self.summaryDataPrepare(dataSet);
@@ -241,7 +243,7 @@ var has = Object.prototype.hasOwnProperty,
         var reg = new RegExp(/^#tab\d/),
             hash = (reg.test(window.location.hash)) ? window.location.hash.match(reg).shift() : null;
 
-        return (hash) ? hash.replace("#tab", "") : NaN;
+        return (hash) ? hash.replace("#tab", "") : 1;
     },
     _setTab = function(index) {
         var nav = $(".nav"),
