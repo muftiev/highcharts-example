@@ -11,108 +11,269 @@
 
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+        <script type="text/javascript" src="bower_components/highcharts-release/highcharts.js"></script>
         <script type="text/javascript" src="main.js"></script>
     </head>
     <body>      
         <div class="container">
             <div class="row">
-                <aside class="col-md-4 sidebar line-margin-top">
-                    <div class="form-group form-inline inline-block-justify">
-                        <label>Наименование:</label>
-                        <input type="text" class="form-control" placeholder="введите наименование...">
-                    </div>
-                    <div class="container-fluid form-group bordered panel">                    
-                        <h6 class="text-right">Ось X</h6>
-                        <div class="form-inline inline-block-justify">
-                            <label>Имя оси:</label>
-                            <input type="text" class="form-control" placeholder="введите имя оси...">                  
+                <aside class="col-md-4 sidebar line-margin-top chart-this-summary">
+                    <form class="setup-form">
+                        <div class="form-group form-inline inline-block-justify">
+                            <label>Наименование:</label>
+                            <input type="text" class="form-control" placeholder="введите наименование..." name="Yname">
                         </div>
-                        <div class="form-inline inline-block-justify line-margin-top">
-                            <label>Данные:</label>
-                            <select>
-                                <option value="null">Выберите...<option/>
-                            </select>
+                        <div class="container-fluid form-group bordered panel">                    
+                            <h6 class="text-right">Ось X</h6>
+                            <div class="form-inline inline-block-justify">
+                                <label>Имя оси:</label>
+                                <input type="text" class="form-control medium" placeholder="введите имя оси..." name="chartName">                  
+                            </div>
+                            <div class="form-inline inline-block-justify line-margin-top">
+                                <label>Данные:</label>
+                                <select class="form-control medium" name="Xdata">
+                                    <option value="null">Выберите...</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="container-fluid bordered line-margin-top">
+                    </form>
+                    <button type="button" class="btn btn-default chart-refresh">Обновить</button>
+                    <div class="container-fluid bordered line-margin-top preview">
                         
                     </div>
                 </aside>
                 <main class="col-md-8 main line-margin-top">
                     <div class="container-fluid">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#">График 1</a></li>
-                            <li><a href="#">График 2</a></li>
-                            <li><a href="#">График 3</a></li>
+                            <li class="active"><a href="#tab1">График 1</a></li>
+                            <li><a href="#tab2">График 2</a></li>
+                            <li><a href="#tab3">График 3</a></li>
                         </ul>
-                        <div id="tab1" class="container-fluid bordered">
-                            <div class="row line-margin-top">
+                        <div id="tab1" class="container-fluid bordered tab">
+                            <div class="row line-margin-top chart-this">
                                 <div class="col-md-7 setup">
-                                    <section class="form-group">
-                                        <div class="form-inline">
-                                            <label>Наименование:</label>
-                                            <input type="text" class="form-control long" placeholder="введите наименование...">
-                                        </div>
-                                        <div class="form-inline line-margin-top">
-                                            <label>Тип:</label>
-                                            <select class="form-control long">
-                                                <option value="linear">Линейная<option/>
-                                            </select>
-                                        </div>
-                                        <div class="form-inline line-margin-top">
-                                            <label>Источник:</label>
-                                            <select class="form-control long">
-                                                <option value="null">Выберите...<option/>
-                                            </select>
-                                        </div>
-                                        <div class="form-inline line-margin-top">
-                                            <label>Тип:</label>
-                                            <select class="form-control medium">
-                                                <option value="line">Линия<option/>
-                                            </select>
-                                            <div class="form-group colorpicker-component">
-                                                <input type="hidden" value="" class="form-control" />
-                                                <span class="form-control input-group-addon"><i></i></span>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <div class="form-inline line-margin-top">
-                                            <label>Отметки:</label>
-                                            <div class="form-group styled-radio">
-                                                <input id="radio-point-square" type="radio" name="point" value="square" class="form-control">
-                                                <label for="radio-point-square">&#9632;</label>
-                                                <input id="radio-point-circle" type="radio" name="point" value="circle" class="form-control">
-                                                <label for="radio-point-circle">&#9679;</label>
-                                                <input id="radio-point-triangle" type="radio" name="point" value="triangle" class="form-triangle">
-                                                <label for="radio-point-triangle">&#9650;</label>
-                                            </div>                                            
-                                            <div class="form-group colorpicker-component">
-                                                <input type="hidden" value="" class="form-control" />
-                                                <span class="form-control input-group-addon"><i></i></span>
-                                                <br>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <section class="container-fluid bordered panel line-margin-top">
-                                        <h6 class="text-right">Ось Y</h6>
-                                        <div class="form-group">
+                                    <form class="setup-form">
+                                        <section class="form-group">
                                             <div class="form-inline">
-                                                <label>Имя оси:</label>
-                                                <input type="text" class="form-control long" placeholder="введите имя оси...">
+                                                <label>Наименование:</label>
+                                                <input type="text" class="form-control long" placeholder="введите наименование..." name="chartName">
                                             </div>
                                             <div class="form-inline line-margin-top">
-                                                <label>Данные:</label>
-                                                <select class="form-control long">
-                                                    <option value="null">Выберите...<option/>
+                                                <label>Источник:</label>
+                                                <select class="form-control long" name="Xdata">
+                                                    <option value="null">Выберите...</option>
                                                 </select>
                                             </div>
                                             <div class="form-inline line-margin-top">
-                                                <label>Диапазон:</label>
-                                                <input type="text" class="form-control short">
-                                                <input type="text" class="form-control short">
+                                                <label>Тип:</label>
+                                                <select class="form-control medium" name="chartType">
+                                                    <option value="none">Отсутствует</option>
+                                                    <option value="line">Линейный</option>
+                                                    <option value="bar">Столбчатый</option>
+                                                </select>
+                                                <div class="form-group colorpicker-component">
+                                                    <input type="hidden" value="#000" class="form-control" name="chartColor" />
+                                                    <span class="form-control input-group-addon"><i></i></span>
+                                                    <br>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </section>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Отметки:</label>
+                                                <div class="form-group styled-radio">
+                                                    <input id="radio-point-square1" type="radio" name="chartPoint" value="square" class="form-control" checked>
+                                                    <label for="radio-point-square1">&#9632;</label>
+                                                    <input id="radio-point-circle1" type="radio" name="chartPoint" value="circle" class="form-control">
+                                                    <label for="radio-point-circle1">&#9679;</label>
+                                                    <input id="radio-point-triangle1" type="radio" name="chartPoint" value="triangle" class="form-triangle">
+                                                    <label for="radio-point-triangle1">&#9650;</label>
+                                                </div>                                            
+                                                <div class="form-group colorpicker-component">
+                                                    <input type="hidden" value="#000" class="form-control" name="chartPointColor" />
+                                                    <span class="form-control input-group-addon"><i></i></span>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                    <label>Диапазон:</label>
+                                                    <input type="text" class="form-control short line-margin-top" name="Xmin">
+                                                    <input type="text" class="form-control short line-margin-top" name="Xmax">
+                                                </div>
+                                        </section>
+                                        <section class="container-fluid bordered panel line-margin-top">
+                                            <h6 class="text-right">Ось Y</h6>
+                                            <div class="form-group">
+                                                <div class="form-inline">
+                                                    <label>Имя оси:</label>
+                                                    <input type="text" class="form-control long" name="Yname" placeholder="введите имя оси...">
+                                                </div>
+                                                <div class="form-inline line-margin-top">
+                                                    <label>Данные:</label>
+                                                    <select class="form-control long" name="Ydata">
+                                                        <option value="null">Выберите...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-inline line-margin-top">
+                                                    <label>Диапазон:</label>
+                                                    <input type="text" class="form-control short line-margin-top" name="Ymin">
+                                                    <input type="text" class="form-control short line-margin-top" name="Ymax">
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </form>
+                                </div>
+                                <div class="col-md-5 preview">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="container-fluid bordered tab">
+                            <div class="row line-margin-top chart-this">
+                                <div class="col-md-7 setup">
+                                    <form class="setup-form">
+                                        <section class="form-group">
+                                            <div class="form-inline">
+                                                <label>Наименование:</label>
+                                                <input type="text" class="form-control long" placeholder="введите наименование..." name="chartName">
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Источник:</label>
+                                                <select class="form-control long" name="Xdata">
+                                                    <option value="null">Выберите...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Тип:</label>
+                                                <select class="form-control medium" name="chartType">
+                                                    <option value="none">Отсутствует</option>
+                                                    <option value="line">Линейный</option>
+                                                    <option value="bar">Столбчатый</option>
+                                                </select>
+                                                <div class="form-group colorpicker-component">
+                                                    <input type="hidden" value="#000" class="form-control" name="chartColor" />
+                                                    <span class="form-control input-group-addon"><i></i></span>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Отметки:</label>
+                                                <div class="form-group styled-radio">
+                                                    <input id="radio-point-square2" type="radio" name="chartPoint" value="square" class="form-control" checked>
+                                                    <label for="radio-point-square2">&#9632;</label>
+                                                    <input id="radio-point-circle2" type="radio" name="chartPoint" value="circle" class="form-control">
+                                                    <label for="radio-point-circle2">&#9679;</label>
+                                                    <input id="radio-point-triangle2" type="radio" name="chartPoint" value="triangle" class="form-triangle">
+                                                    <label for="radio-point-triangle2">&#9650;</label>
+                                                </div>                                            
+                                                <div class="form-group colorpicker-component">
+                                                    <input type="hidden" value="#000" class="form-control" name="chartPointColor" />
+                                                    <span class="form-control input-group-addon"><i></i></span>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                    <label>Диапазон:</label>
+                                                    <input type="text" class="form-control short line-margin-top" name="Xmin">
+                                                    <input type="text" class="form-control short line-margin-top" name="Xmax">
+                                                </div>
+                                        </section>
+                                        <section class="container-fluid bordered panel line-margin-top">
+                                            <h6 class="text-right">Ось Y</h6>
+                                            <div class="form-group">
+                                                <div class="form-inline">
+                                                    <label>Имя оси:</label>
+                                                    <input type="text" class="form-control long" name="Yname" placeholder="введите имя оси...">
+                                                </div>
+                                                <div class="form-inline line-margin-top">
+                                                    <label>Данные:</label>
+                                                    <select class="form-control long" name="Ydata">
+                                                        <option value="null">Выберите...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-inline line-margin-top">
+                                                    <label>Диапазон:</label>
+                                                    <input type="text" class="form-control short line-margin-top" name="Ymin">
+                                                    <input type="text" class="form-control short line-margin-top" name="Ymax">
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </form>
+                                </div>
+                                <div class="col-md-5 preview">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab3" class="container-fluid bordered tab">
+                            <div class="row line-margin-top chart-this">
+                                <div class="col-md-7 setup">
+                                    <form class="setup-form">
+                                        <section class="form-group">
+                                            <div class="form-inline">
+                                                <label>Наименование:</label>
+                                                <input type="text" class="form-control long" placeholder="введите наименование..." name="chartName">
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Источник:</label>
+                                                <select class="form-control long" name="Xdata">
+                                                    <option value="null">Выберите...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Тип:</label>
+                                                <select class="form-control medium" name="chartType">
+                                                    <option value="none">Отсутствует</option>
+                                                    <option value="line">Линейный</option>
+                                                    <option value="bar">Столбчатый</option>
+                                                </select>
+                                                <div class="form-group colorpicker-component">
+                                                    <input type="hidden" value="#000" class="form-control" name="chartColor" />
+                                                    <span class="form-control input-group-addon"><i></i></span>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                <label>Отметки:</label>
+                                                <div class="form-group styled-radio">
+                                                    <input id="radio-point-square3" type="radio" name="chartPoint" value="square" class="form-control" checked>
+                                                    <label for="radio-point-square3">&#9632;</label>
+                                                    <input id="radio-point-circle3" type="radio" name="chartPoint" value="circle" class="form-control">
+                                                    <label for="radio-point-circle3">&#9679;</label>
+                                                    <input id="radio-point-triangle3" type="radio" name="chartPoint" value="triangle" class="form-triangle">
+                                                    <label for="radio-point-triangle3">&#9650;</label>
+                                                </div>                                            
+                                                <div class="form-group colorpicker-component">
+                                                    <input type="hidden" value="#000" class="form-control" name="chartPointColor" />
+                                                    <span class="form-control input-group-addon"><i></i></span>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="form-inline line-margin-top">
+                                                    <label>Диапазон:</label>
+                                                    <input type="text" class="form-control short line-margin-top" name="Xmin">
+                                                    <input type="text" class="form-control short line-margin-top" name="Xmax">
+                                                </div>
+                                        </section>
+                                        <section class="container-fluid bordered panel line-margin-top">
+                                            <h6 class="text-right">Ось Y</h6>
+                                            <div class="form-group">
+                                                <div class="form-inline">
+                                                    <label>Имя оси:</label>
+                                                    <input type="text" class="form-control long" name="Yname" placeholder="введите имя оси...">
+                                                </div>
+                                                <div class="form-inline line-margin-top">
+                                                    <label>Данные:</label>
+                                                    <select class="form-control long" name="Ydata">
+                                                        <option value="null">Выберите...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-inline line-margin-top">
+                                                    <label>Диапазон:</label>
+                                                    <input type="text" class="form-control short line-margin-top" name="Ymin">
+                                                    <input type="text" class="form-control short line-margin-top" name="Ymax">
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </form>
                                 </div>
                                 <div class="col-md-5 preview">
 
@@ -123,12 +284,5 @@
                 </main>
             </div>
         </div>
-        <footer>
-            <script type="text/javascript">
-                $(function(){
-                    $('.colorpicker-component').colorpicker();
-                });
-            </script>
-        </footer>   
     </body>
 </html>

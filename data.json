@@ -7,6 +7,8 @@
   ],
   "data": [
     {"name": "Ivan", "age": 25, "salary": 500, "qualification": 1},
-    {"name": "Petr", "age": 45, "salary": 710.45, "qualification": 4}
+    {"name": "Petr", "age": 45, "salary": 710.45, "qualification": 4},
+    {"name": "Irina", "age": 35, "salary": 650, "qualification": 3},
+    {"name": "Aleksandra", "age": 30, "salary": 625, "qualification": 2}
   ]
 }
